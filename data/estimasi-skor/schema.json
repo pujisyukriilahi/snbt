@@ -1,0 +1,14 @@
+{
+  "kampus": "string",
+  "tahun": "number",
+  "sumber": "string",
+  "updated_at": "YYYY-MM-DD",
+  "program_studi": [
+    {
+      "kode": "string",
+      "nama": "string",
+      "fakultas": "string",
+      "baseline": "number"
+    }
+  ]
+}
