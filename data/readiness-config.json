@@ -1,44 +1,61 @@
 {
-  "version": "1.0",
-  "note": "Configuration for SNBT Readiness Check. Readiness is not a TO score and must not ask for TO history or last TO score.",
+  "version": "2.0",
+  "note": "SNBT Readiness Check is an initial self-assessment. It estimates learning needs before a baseline TO and must not be presented as a predicted SNBT score.",
+  "assessment": {
+    "total_questions": 21,
+    "scale": "1-5",
+    "dimensions": {
+      "academic": {"weight": 0.40, "questions": 6},
+      "subtest": {"weight": 0.30, "questions": 7},
+      "learning_capability": {"weight": 0.20, "questions": 4},
+      "strategy": {"weight": 0.10, "questions": 4}
+    },
+    "target_pressure": "modifier_not_readiness"
+  },
+  "severity": {
+    "1": 4,
+    "2": 3,
+    "3": 2,
+    "4": 1,
+    "5": 0
+  },
+  "target_pressure": {
+    "baseline_gte_730": 5,
+    "baseline_gte_700": 4,
+    "baseline_gte_670": 3,
+    "baseline_gte_630": 2,
+    "baseline_lt_630": 1,
+    "class_12_bonus": 1,
+    "maximum": 5
+  },
   "study_plan": {
     "minimum_sessions": 2,
-    "maximum_sessions": 24,
-    "session_unit": "1 pertemuan = 1 fokus utama",
-    "baseline_note": "Readiness results estimate learning needs before a first baseline TO. A baseline TO should be used as an external checkpoint after the initial learning cycle.",
-    "weights": {
-      "academic": 0.45,
-      "strategy": 0.20,
-      "learning_system": 0.20,
-      "target_urgency": 0.15
-    },
-    "class_multiplier": {
-      "10": 0.70,
-      "11": 1.00,
-      "12": 1.35
-    },
-    "recommendation_bands": [
-      {"max_sessions": 4, "label": "Fondasi Mandiri + Check-in", "description": "Kebutuhan privat relatif ringan. Fokus pada fondasi dan arahan belajar, lalu ukur ulang dengan baseline TO eksternal."},
-      {"max_sessions": 8, "label": "Fondasi Terarah", "description": "Perlu pendampingan untuk membangun fondasi, strategi dasar, dan sistem belajar."},
-      {"max_sessions": 12, "label": "Intensif Terarah", "description": "Ada beberapa gap penting yang perlu ditangani secara terstruktur sebelum mengejar target tinggi."},
-      {"max_sessions": 16, "label": "Intensif", "description": "Gap cukup besar dan perlu intervensi privat lintas subtest secara konsisten."},
-      {"max_sessions": 24, "label": "Intensif Prioritas", "description": "Kesiapan masih rendah atau target sangat kompetitif sehingga perlu pendampingan lebih panjang dan checkpoint berkala."}
-    ]
+    "maximum_sessions": 64,
+    "checkpoint_every": 8,
+    "session_unit": "1 pertemuan = 1 primary subtest",
+    "anti_consecutive_same_subtest": true,
+    "allocation": "severity_weighted",
+    "ordering": "weighted_interleaving",
+    "baseline_note": "After the initial learning cycle, a baseline TO should replace self-assessment as the primary evidence and move the student to TO Gap Check.",
+    "session_ranges": [
+      {"min": 2, "max": 4, "label": "Self-study + Check-in"},
+      {"min": 4, "max": 8, "label": "Guided Foundation"},
+      {"min": 8, "max": 16, "label": "Guided Development"},
+      {"min": 16, "max": 28, "label": "Intensive Development"},
+      {"min": 28, "max": 40, "label": "Intensive Targeted"},
+      {"min": 40, "max": 64, "label": "Intensive Priority"}
+    ],
+    "focus_rules": {
+      "2_4_sessions": "2-3 priority subtests",
+      "5_8_sessions": "3-4 priority subtests",
+      "9_16_sessions": "4-5 priority subtests",
+      "17_plus_sessions": "all subtests may appear according to weighted allocation"
+    }
   },
-  "questions": [
-    {"id":"a1","domain":"Academic","text":"Seberapa kuat pemahamanmu terhadap konsep dasar yang menjadi bekal SNBT?","hint":"Nilai berdasarkan kemampuan akademik saat ini, bukan hasil TO.","options":["Masih banyak konsep dasar yang belum dikuasai","Beberapa konsep dasar masih sering membingungkan","Cukup menguasai konsep dasar tetapi belum konsisten","Sebagian besar konsep dasar sudah kuat","Konsep dasar sangat kuat dan siap dikembangkan ke soal penalaran"]},
-    {"id":"a2","domain":"Academic","text":"Seberapa nyaman kamu menghadapi soal yang membutuhkan penalaran, bukan sekadar hafalan?","hint":"Perhatikan kemampuan memahami pola, informasi, hubungan, dan logika.","options":["Sangat kesulitan","Sering membutuhkan banyak bantuan","Cukup bisa tetapi belum konsisten","Biasanya bisa menyelesaikan dengan baik","Sangat nyaman menghadapi soal penalaran"]},
-    {"id":"a3","domain":"Academic","text":"Seberapa kuat kemampuan numerik dan kuantitatifmu saat ini?","hint":"Termasuk operasi, perbandingan, aljabar dasar, data, dan penalaran kuantitatif.","options":["Sering kesulitan dengan dasar numerik","Masih banyak materi numerik yang belum dikuasai","Bisa materi dasar tetapi mudah salah","Cukup kuat pada sebagian besar materi","Sangat kuat dan mampu menerapkan konsep pada masalah baru"]},
-    {"id":"a4","domain":"Academic","text":"Seberapa kuat kemampuan memahami bacaan dan informasi tertulis?","hint":"Termasuk menemukan ide, menyimpulkan, memahami konteks, dan mengevaluasi informasi.","options":["Sering kesulitan memahami bacaan","Memahami bacaan pendek tetapi kesulitan pada bacaan kompleks","Cukup memahami tetapi masih lambat atau tidak konsisten","Biasanya dapat memahami informasi dengan baik","Sangat kuat dan cepat memahami bacaan kompleks"]},
-    {"id":"a5","domain":"Academic","text":"Seberapa kuat kemampuan Bahasa Inggris untuk memahami informasi?","hint":"Fokus pada pemahaman bacaan, kosakata dalam konteks, dan makna kalimat.","options":["Sangat kesulitan memahami bacaan Bahasa Inggris","Masih sering bergantung pada terjemahan","Cukup memahami teks sederhana","Cukup nyaman membaca teks akademik","Sangat nyaman memahami teks dan konteks Bahasa Inggris"]},
-    {"id":"a6","domain":"Academic","text":"Seberapa siap kamu menghadapi soal dengan tingkat kesulitan yang meningkat?","hint":"Nilai kesiapan belajar menghadapi soal dari dasar menuju penalaran lebih kompleks.","options":["Biasanya berhenti ketika soal mulai sulit","Mampu mencoba tetapi cepat menyerah","Bisa menyelesaikan sebagian dengan bantuan","Cukup mampu menyelesaikan soal sulit","Terbiasa memecah soal sulit menjadi langkah-langkah penyelesaian"]},
-    {"id":"s1","domain":"Strategy","text":"Seberapa paham kamu tentang karakter setiap subtest SNBT dan cara mengerjakannya?","hint":"Belum perlu pernah TO; yang dinilai adalah pemahaman strategi dasarnya.","options":["Belum tahu karakter subtest","Tahu nama subtest tetapi belum tahu strateginya","Tahu beberapa karakter dan strategi dasar","Memahami strategi sebagian besar subtest","Memahami karakter, strategi, dan pendekatan tiap subtest"]},
-    {"id":"s2","domain":"Strategy","text":"Seberapa siap kamu mengatur waktu ketika mengerjakan soal?","hint":"Nilai kemampuan mengatur ritme, bukan pengalaman TO.","options":["Belum punya cara mengatur waktu","Sering terlalu lama pada satu soal","Mulai punya perkiraan waktu","Cukup mampu membagi waktu","Punya aturan waktu dan tahu kapan harus lanjut atau skip"]},
-    {"id":"s3","domain":"Strategy","text":"Seberapa paham kamu cara menghadapi soal yang tidak langsung bisa dikerjakan?","hint":"Termasuk membaca ulang, eliminasi, estimasi, memilih skip, dan kembali ke soal.","options":["Biasanya bingung harus melakukan apa","Cenderung memaksakan satu soal","Mulai mencoba beberapa cara","Punya beberapa strategi alternatif","Punya decision rule yang jelas untuk soal sulit"]},
-    {"id":"s4","domain":"Strategy","text":"Seberapa paham kamu cara belajar SNBT yang efektif?","hint":"Bedakan latihan terarah dengan sekadar mengerjakan soal sebanyak mungkin.","options":["Belum tahu harus belajar seperti apa","Biasanya hanya mengerjakan banyak soal","Mulai mencoba evaluasi kesalahan","Sudah punya metode belajar dan evaluasi","Belajar berdasarkan gap, kesalahan, dan target peningkatan"]},
-    {"id":"y1","domain":"Learning System","text":"Seberapa konsisten kamu bisa menyediakan waktu belajar setiap minggu?","hint":"Pilih kondisi yang realistis, bukan jadwal ideal.","options":["Hampir tidak punya waktu belajar","Waktu belajar sangat tidak konsisten","Ada waktu tetapi sering berubah","Cukup punya jadwal rutin","Punya jadwal rutin yang realistis dan terjaga"]},
-    {"id":"y2","domain":"Learning System","text":"Seberapa baik kamu belajar secara mandiri setelah mendapatkan materi atau arahan?","hint":"Ini membantu menentukan seberapa banyak pendampingan privat yang dibutuhkan.","options":["Sulit belajar tanpa didampingi","Sering berhenti ketika menemui kendala","Bisa belajar mandiri untuk materi tertentu","Cukup mandiri dan tahu kapan meminta bantuan","Sangat mandiri, mampu mengevaluasi dan memperbaiki cara belajar"]},
-    {"id":"y3","domain":"Learning System","text":"Seberapa konsisten kamu mengevaluasi kesalahan setelah latihan?","hint":"Yang dinilai adalah kebiasaan evaluasi, bukan TO.","options":["Hampir tidak pernah mengevaluasi","Biasanya hanya melihat jawaban benar/salah","Kadang membahas kesalahan","Rutin mencari penyebab kesalahan","Selalu mengubah kesalahan menjadi rencana perbaikan"]},
-    {"id":"y4","domain":"Learning System","text":"Seberapa siap kamu mengikuti rencana belajar selama beberapa bulan ke depan?","hint":"Pertimbangkan sekolah, kegiatan lain, dan kemampuan menjaga ritme.","options":["Sulit menjaga rutinitas","Sering mulai lalu berhenti","Bisa konsisten dalam periode pendek","Cukup mampu menjaga rutinitas","Mampu menjaga rutinitas dan menyesuaikan strategi berdasarkan progres"]}
-  ]
+  "ethics": {
+    "allow_low_need_result": true,
+    "allow_no_tutoring_result": true,
+    "product_must_follow_diagnosis": true,
+    "no_forced_package_size": true
+  }
 }
