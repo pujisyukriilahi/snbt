@@ -1,0 +1,13 @@
+{
+  "version":"1.0",
+  "note":"Self-assessment diagnostic for students without a TO baseline. It estimates starting focus; it is not an SNBT score prediction.",
+  "subtests":[
+    {"id":"PU","name":"Penalaran Umum","focus":"logika, pola, hubungan, dan problem solving","question":"Seberapa nyaman kamu menemukan pola, hubungan logis, dan solusi dari informasi yang belum familiar?"},
+    {"id":"PPU","name":"Pengetahuan dan Pemahaman Umum","focus":"makna kata, konsep, konteks, dan informasi umum","question":"Seberapa nyaman kamu memahami makna kata/konsep dan menghubungkannya dengan konteks sebuah informasi?"},
+    {"id":"PBM","name":"Pemahaman Bacaan dan Menulis","focus":"ide utama, struktur, hubungan informasi, dan penyuntingan","question":"Seberapa nyaman kamu menemukan ide utama, hubungan antarbagian teks, kesimpulan, dan memperbaiki kalimat?"},
+    {"id":"PK","name":"Pengetahuan Kuantitatif","focus":"aritmetika, aljabar, geometri, data, dan kuantitas","question":"Seberapa nyaman kamu menggunakan angka, perbandingan, aljabar, data, atau besaran untuk menyelesaikan masalah?"},
+    {"id":"LBI","name":"Literasi Bahasa Indonesia","focus":"memahami, menilai, dan menyimpulkan informasi kompleks","question":"Seberapa nyaman kamu memahami bacaan panjang, menyimpulkan informasi tersirat, dan menilai argumen dalam Bahasa Indonesia?"},
+    {"id":"LBE","name":"Literasi Bahasa Inggris","focus":"reading comprehension, vocabulary in context, inference","question":"Seberapa nyaman kamu memahami teks Bahasa Inggris, vocabulary dalam konteks, detail, dan inference tanpa menerjemahkan semua kata?"},
+    {"id":"PM","name":"Penalaran Matematika","focus":"pemodelan, reasoning kuantitatif, strategi, dan penerapan konsep","question":"Seberapa nyaman kamu mengubah masalah sehari-hari menjadi model matematika lalu memilih strategi penyelesaiannya?"}
+  ]
+}
