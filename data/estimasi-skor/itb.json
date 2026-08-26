@@ -1,33 +1,5 @@
 {
-  "kampus": "ITB",
-  "tahun": 2027,
-  "sumber": "Estimasi Skor SNBT kompetitif (file user)",
-  "updated_at": "2026-08-26",
-  "catatan": "Baseline internal, bukan passing grade resmi.",
-  "program_studi": [
-    {"kode":"ITB-001","nama":"Sekolah Teknik Elektro dan Informatika - Komputasi (STEI-K)","fakultas":"Ganesha","baseline":765},
-    {"kode":"ITB-002","nama":"Fakultas Teknik Pertambangan dan Perminyakan (FTTM)","fakultas":"Ganesha","baseline":740},
-    {"kode":"ITB-003","nama":"Sekolah Bisnis dan Manajemen (SBM)","fakultas":"Ganesha","baseline":746},
-    {"kode":"ITB-004","nama":"Fakultas Teknik Pertambangan dan Perminyakan - Kampus Cirebon (FTTM-C)","fakultas":"Cirebon","baseline":739},
-    {"kode":"ITB-005","nama":"Sekolah Teknik Elektro dan Informatika - Rekayasa (STEI-R)","fakultas":"Ganesha","baseline":718},
-    {"kode":"ITB-006","nama":"Fakultas Teknik Mesin dan Dirgantara (FTMD)","fakultas":"Ganesha","baseline":728},
-    {"kode":"ITB-007","nama":"Fakultas Ilmu dan Teknologi Kebumian (FITB)","fakultas":"Ganesha","baseline":712},
-    {"kode":"ITB-008","nama":"Arsitektur (SAPPK)","fakultas":"Ganesha","baseline":707},
-    {"kode":"ITB-009","nama":"Perencanaan Wilayah dan Kota (SAPPK)","fakultas":"Ganesha","baseline":702},
-    {"kode":"ITB-010","nama":"Sekolah Farmasi (SF)","fakultas":"Ganesha","baseline":696},
-    {"kode":"ITB-011","nama":"Fakultas Seni Rupa dan Desain (FSRD)","fakultas":"Ganesha","baseline":685},
-    {"kode":"ITB-012","nama":"FTI - Rekayasa Industri","fakultas":"Ganesha","baseline":680},
-    {"kode":"ITB-013","nama":"FTSL - Infrastruktur Sipil, Lingkungan, dan Kelautan","fakultas":"Ganesha","baseline":663},
-    {"kode":"ITB-014","nama":"FMIPA - IPA","fakultas":"Ganesha","baseline":636},
-    {"kode":"ITB-015","nama":"Fakultas Teknik Sipil dan Lingkungan - Kampus Jatinangor","fakultas":"Jatinangor","baseline":650},
-    {"kode":"ITB-016","nama":"Sekolah Arsitektur, Perencanaan dan Pengembangan Kebijakan - Kampus Cirebon","fakultas":"Cirebon","baseline":650},
-    {"kode":"ITB-017","nama":"FITB - Kampus Cirebon","fakultas":"Cirebon","baseline":645},
-    {"kode":"ITB-018","nama":"FTSL - Kampus Jatinangor","fakultas":"Jatinangor","baseline":640},
-    {"kode":"ITB-019","nama":"Sekolah Ilmu dan Teknologi Hayati - Sains (SITH-S)","fakultas":"Ganesha","baseline":631},
-    {"kode":"ITB-020","nama":"Sekolah Ilmu dan Teknologi Hayati - Rekayasa (SITH-R)","fakultas":"Jatinangor","baseline":620},
-    {"kode":"ITB-021","nama":"FMIPA - Matematika","fakultas":"Ganesha","baseline":625},
-    {"kode":"ITB-022","nama":"Sekolah Ilmu dan Teknologi Hayati - Sains (SITH-S)","fakultas":"Ganesha","baseline":631},
-    {"kode":"ITB-023","nama":"Fakultas Matematika dan Ilmu Pengetahuan Alam - Matematika (FMIPA-M)","fakultas":"Ganesha","baseline":625},
-    {"kode":"ITB-024","nama":"Sekolah Ilmu dan Teknologi Hayati - Rekayasa (SITH-R)","fakultas":"Jatinangor","baseline":620}
+  "kampus":"ITB","tahun":2027,"sumber":"Estimasi Skor SNBT kompetitif (file user)","updated_at":"2026-08-26","catatan":"Baseline internal, bukan passing grade resmi.","program_studi":[
+    {"kode":"ITB-001","nama":"Sekolah Teknik Elektro dan Informatika - Komputasi (STEI-K)","fakultas":"Ganesha","baseline":765},{"kode":"ITB-002","nama":"Fakultas Teknik Pertambangan dan Perminyakan (FTTM)","fakultas":"Ganesha","baseline":740},{"kode":"ITB-003","nama":"Sekolah Bisnis dan Manajemen (SBM)","fakultas":"Ganesha","baseline":746},{"kode":"ITB-004","nama":"Fakultas Teknik Pertambangan dan Perminyakan - Kampus Cirebon (FTTM-C)","fakultas":"Cirebon","baseline":739},{"kode":"ITB-005","nama":"Fakultas Teknik Mesin dan Dirgantara (FTMD)","fakultas":"Ganesha","baseline":728},{"kode":"ITB-006","nama":"Sekolah Teknik Elektro dan Informatika - Rekayasa (STEI-R)","fakultas":"Ganesha","baseline":718},{"kode":"ITB-007","nama":"Fakultas Ilmu dan Teknologi Kebumian (FITB)","fakultas":"Ganesha","baseline":712},{"kode":"ITB-008","nama":"Arsitektur (SAPPK)","fakultas":"Ganesha","baseline":707},{"kode":"ITB-009","nama":"Perencanaan Wilayah dan Kota (SAPPK)","fakultas":"Ganesha","baseline":702},{"kode":"ITB-010","nama":"Sekolah Farmasi (SF)","fakultas":"Ganesha","baseline":696},{"kode":"ITB-011","nama":"Fakultas Teknologi Industri - Kampus Cirebon (FTI-C)","fakultas":"Cirebon","baseline":691},{"kode":"ITB-012","nama":"Fakultas Seni Rupa dan Desain (FSRD)","fakultas":"Ganesha","baseline":685},{"kode":"ITB-013","nama":"Fakultas Teknologi Industri - Rekayasa Industri (FTI-RI)","fakultas":"Ganesha","baseline":680},{"kode":"ITB-014","nama":"Fakultas Teknologi Industri - Sistem dan Proses (FTI-SP)","fakultas":"Ganesha","baseline":674},{"kode":"ITB-015","nama":"Fakultas Ilmu dan Teknologi Kebumian - Kampus Cirebon (FITB-C)","fakultas":"Cirebon","baseline":669},{"kode":"ITB-016","nama":"Fakultas Teknik Sipil dan Lingkungan - Infrastruktur Sipil, Lingkungan, dan Kelautan","fakultas":"Ganesha","baseline":663},{"kode":"ITB-017","nama":"Perencanaan Wilayah dan Kota - Kampus Cirebon (SAPPK-C)","fakultas":"Cirebon","baseline":658},{"kode":"ITB-018","nama":"Fakultas Teknik Sipil dan Lingkungan - Infrastruktur Sumber Daya Air dan Sanitasi Lingkungan","fakultas":"Ganesha","baseline":653},{"kode":"ITB-019","nama":"Fakultas Seni Rupa dan Desain - Kampus Cirebon (FSRD-C)","fakultas":"Cirebon","baseline":647},{"kode":"ITB-020","nama":"Sekolah Ilmu dan Teknologi Hayati - Kampus Cirebon (SITH-C)","fakultas":"Cirebon","baseline":642},{"kode":"ITB-021","nama":"Fakultas Matematika dan Ilmu Pengetahuan Alam - IPA (FMIPA-IPA)","fakultas":"Ganesha","baseline":636},{"kode":"ITB-022","nama":"Sekolah Ilmu dan Teknologi Hayati - Sains (SITH-S)","fakultas":"Ganesha","baseline":631},{"kode":"ITB-023","nama":"Fakultas Matematika dan Ilmu Pengetahuan Alam - Matematika (FMIPA-M)","fakultas":"Ganesha","baseline":625},{"kode":"ITB-024","nama":"Sekolah Ilmu dan Teknologi Hayati - Rekayasa (SITH-R)","fakultas":"Jatinangor","baseline":620}
   ]
 }
