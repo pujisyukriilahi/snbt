@@ -12,8 +12,7 @@
   function addStyles() {
     const s = document.createElement('style');
     s.textContent = `
-      #leadCapture{display:none;background:#f8fbf9;border:1px solid #d9e7df;border-radius:16px;padding:18px;margin:18px 0}
-      #leadCapture.show{display:block}
+      #leadCapture{display:block;background:#f8fbf9;border:1px solid #d9e7df;border-radius:16px;padding:18px;margin:18px 0}
       #leadCapture h3{margin:0 0 6px;color:#07583f}
       #leadCapture p{margin:0 0 14px;color:#64766e;font-size:12px;line-height:1.5}
       #leadCapture .leadGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -30,22 +29,22 @@
 
   function addForm() {
     if ($('leadCapture')) return;
-    const study = $('study');
-    if (!study) return;
+    const target = $('toGapStart');
+    if (!target) return;
     const box = document.createElement('div');
     box.id = 'leadCapture';
     box.innerHTML = `
-      <h3>Dapatkan hasil & Study Plan kamu</h3>
-      <p>Masukkan nama dan WhatsApp agar admin Tutorin dapat mengirimkan informasi lanjutan terkait hasil analisis dan rekomendasi belajar.</p>
+      <h3>Mulai TO Gap Check</h3>
+      <p>Isi data berikut untuk melanjutkan ke Target & Nilai TO.</p>
       <div class="leadGrid">
         <div><input id="leadName" type="text" maxlength="100" placeholder="Nama lengkap"></div>
         <div><input id="leadWa" type="tel" maxlength="20" inputmode="tel" placeholder="Nomor WhatsApp (08xx / 628xx)"></div>
         <label class="consent leadFull"><input id="leadConsent" type="checkbox"> <span>Saya bersedia dihubungi Tutorin terkait hasil assessment dan informasi belajar.</span></label>
       </div>
-      <button id="leadSubmit" type="button">Simpan & Lanjutkan</button>
+      <button id="leadSubmit" type="button">Mulai TO Gap Check</button>
       <div class="leadMsg" id="leadMsg"></div>
     `;
-    study.insertBefore(box, study.querySelector('.reportActions') || study.lastElementChild);
+    target.parentNode.insertBefore(box, target);
     $('leadSubmit').addEventListener('click', submitLead);
   }
 
@@ -85,45 +84,46 @@
   }
 
   async function submitLead() {
+    if (submitted) return;
     const name = $('leadName').value.trim();
     const wa = normalizeWa($('leadWa').value);
     const consent = $('leadConsent').checked;
     const msg = $('leadMsg');
     if (name.length < 2) { msg.textContent = 'Mohon isi nama lengkap.'; return; }
     if (!/^62[0-9]{8,15}$/.test(wa)) { msg.textContent = 'Nomor WhatsApp belum valid. Gunakan 08xx atau 628xx.'; return; }
-    if (!consent) { msg.textContent = 'Centang persetujuan agar admin dapat menghubungi Anda.'; return; }
+    if (!consent) { msg.textContent = 'Centang persetujuan agar dapat melanjutkan.'; return; }
     const btn = $('leadSubmit');
     btn.disabled = true; btn.textContent = 'Menyimpan...'; msg.textContent = '';
     lastPayload = buildPayload();
     lastPayload.whatsapp = wa;
     try {
-      const res = await fetch(LEAD_ENDPOINT, {
+      await fetch(LEAD_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(lastPayload)
       });
       submitted = true;
-      msg.textContent = '✓ Data berhasil dikirim. Hasil dan Study Plan tetap tersedia di halaman ini.';
-      btn.textContent = 'Tersimpan ✓';
       localStorage.setItem('tutorin_snbt_gap_lead', JSON.stringify({nama:name,whatsapp:wa,savedAt:new Date().toISOString()}));
+      const lead = $('leadCapture');
+      if (lead) lead.style.display = 'none';
+      const gate = $('toGapStart');
+      if (gate) gate.style.display = 'block';
+      const target = $('targetSection');
+      if (target) target.style.display = 'block';
     } catch (e) {
       msg.textContent = 'Data belum dapat dikirim. Silakan coba lagi.';
-      btn.disabled = false; btn.textContent = 'Simpan & Lanjutkan';
+      btn.disabled = false; btn.textContent = 'Mulai TO Gap Check';
     }
-  }
-
-  function reveal() {
-    addForm();
-    const box = $('leadCapture');
-    if (box) box.classList.add('show');
   }
 
   function init() {
     addStyles();
-    const analyze = $('analyze');
-    if (!analyze) return;
-    analyze.addEventListener('click', () => setTimeout(reveal, 250));
+    addForm();
+    const gate = $('toGapStart');
+    const target = $('targetSection');
+    if (gate) gate.style.display = submitted ? 'none' : 'block';
+    if (target) target.style.display = submitted ? 'block' : 'none';
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
